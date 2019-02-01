@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Chameleon.MainPage" xmlns:effect="clr-namespace:Chameleon.Effects;assembly=Chameleon" xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:fft="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" xmlns:controls="clr-namespace:Chameleon.Controls;assembly=Chameleon" xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+    <Grid x:Name="ContentWrapper">
+        <StackLayout x:Name="CoverWrapper" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Up" Swiped="Handle_Swiped" />
+            </StackLayout.GestureRecognizers>
+            <RelativeLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ff:CachedImage RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}" Source="chameleon.png" VerticalOptions="FillAndExpand" Aspect="AspectFill" />
+                <Grid x:Name="MainContainer" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+                    <Grid.Effects>
+                        <effect:SafeAreaPaddingEffect />
+                    </Grid.Effects>
+                    <Grid.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="0,0,0,40" />
+                        </OnPlatform>
+                    </Grid.Padding>
+                    <RelativeLayout VerticalOptions="FillAndExpand">
+                        <StackLayout RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.65,Constant=0}" Margin="20,0">
+                            <Label Text="CHAMELEON" FontSize="36" TextColor="White" FontFamily="{StaticResource font_black}" Margin="0,0,0,8" />
+                            <RelativeLayout VerticalOptions="FillAndExpand">
+                                <Label HeightRequest="80" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=.75,Constant=0}" LineBreakMode="WordWrap" Text="Getting to know this distinctive and highly specialized clade" FontFamily="{StaticResource font_normal}" FontSize="20" TextColor="White" />
+                            </RelativeLayout>
+                            <ff:CachedImage x:Name="ChameleonAvatar" Source="chameleon2.png" WidthRequest="64" HeightRequest="64" HorizontalOptions="EndAndExpand">
+                                <ff:CachedImage.Transformations>
+                                    <fft:CircleTransformation />
+                                </ff:CachedImage.Transformations>
+                            </ff:CachedImage>
+                        </StackLayout>
+                    </RelativeLayout>
+                    <Label Text="Scroll to know more" FontSize="12" TextColor="DarkGray" FontFamily="{StaticResource font_normal}" VerticalOptions="EndAndExpand" HorizontalOptions="Center" HorizontalTextAlignment="Center" />
+                </Grid>
+            </RelativeLayout>
+        </StackLayout>
+        <StackLayout x:Name="DataWrapper" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ScrollView x:Name="ScrollWrapper" HorizontalOptions="Start" VerticalOptions="Start">
+                <StackLayout MinimumHeightRequest="812" Margin="30,0,30,0">
+                    <StackLayout.Effects>
+                        <effect:SafeAreaPaddingEffect />
+                    </StackLayout.Effects>
+                    <StackLayout.Padding>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="Android" Value="0,40,0,40" />
+                        </OnPlatform>
+                    </StackLayout.Padding>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Spacing="6" VerticalOptions="Center">
+                            <Label Text="CHAMELEON" FontSize="24" TextColor="Black" FontFamily="{StaticResource font_black}" Margin="0,0,0,0" />
+                            <StackLayout Spacing="6" Orientation="Horizontal">
+                                <Label Text="Animalia" FontSize="12" TextColor="Black" FontFamily="{StaticResource font_normal}" />
+                                <Label Text="|" FontSize="12" TextColor="Gray" FontFamily="{StaticResource font_normal}" />
+                                <Label Text="Chordata" FontSize="12" TextColor="Black" FontFamily="{StaticResource font_normal}" />
+                                <Label Text="|" FontSize="12" TextColor="Gray" FontFamily="{StaticResource font_normal}" />
+                                <Label Text="Reptilia" FontSize="12" TextColor="Black" FontFamily="{StaticResource font_normal}" />
+                            </StackLayout>
+                        </StackLayout>
+                        <ff:CachedImage Source="chameleon2.png" WidthRequest="64" HeightRequest="64" HorizontalOptions="EndAndExpand">
+                            <ff:CachedImage.Transformations>
+                                <fft:CircleTransformation />
+                            </ff:CachedImage.Transformations>
+                        </ff:CachedImage>
+                    </StackLayout>
+                    <controls:Separator Color="#e8e8e8" Thickness="1" Margin="0,20,0,12" />
+                    <StackLayout Orientation="Horizontal" Spacing="6">
+                        <Label VerticalOptions="End" Text="358.6K" FontSize="20" TextColor="Black" FontFamily="{StaticResource font_black}" />
+                        <Label VerticalOptions="End" Margin="0,0,0,1" Text="LIKES" FontSize="16" TextColor="#8c91ab" FontFamily="{StaticResource font_black}" />
+                        <Label VerticalOptions="End" Margin="12,0,0,0" Text="12.9K" FontSize="20" TextColor="Black" FontFamily="{StaticResource font_black}" />
+                        <Label VerticalOptions="End" Margin="0,0,0,1" Text="FANS" FontSize="16" TextColor="#8c91ab" FontFamily="{StaticResource font_black}" />
+                        <Grid HeightRequest="24" WidthRequest="24" HorizontalOptions="EndAndExpand" Margin="0,0,12,0">
+                            <lottie:AnimationView Scale="5" x:Name="AnimationView" Animation="heart.json" OnClick="Handle_OnClick" />
+                        </Grid>
+                    </StackLayout>
+                    <controls:Separator Color="#e8e8e8" Thickness="1" Margin="0,12,0,20" />
+                    <Label LineHeight="1.5" TextColor="#8c91ab" FontSize="13" FontFamily="{StaticResource font_normal}" Text="These species come in a range of colors, and many species have the ability to change color. Chameleons are distinguished by their feet; their very extensive, highly modified, rapidly extrudable tongues; their swaying gait; and crests or horns on their brow and snout." />
+                    <controls:Separator Color="#e8e8e8" Thickness="1" Margin="0,20,0,20" />
+                    <ff:CachedImage Source="chameleon3.png" Margin="0,0,0,10" />
+                    <ContentView Padding="20" BackgroundColor="#0eb0b1">
+                        <Label LineHeight="1.5" FontSize="14" FontFamily="{StaticResource font_bold}" TextColor="White" Text="Each eye can pivot and focus independently, allowing the chameleon to observe two different objects simultaneously." />
+                    </ContentView>
+                    <controls:Separator Color="#e8e8e8" Thickness="1" Margin="0,20,0,20" />
+                    <StackLayout Spacing="6" Orientation="Horizontal" HeightRequest="20" HorizontalOptions="Start" Margin="0,0,0,16">
+                        <BoxView BackgroundColor="#5f3fc8" WidthRequest="4" />
+                        <Label FontSize="14" FontFamily="{StaticResource font_bold}" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="Black" Text="Distinguishing Features" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <ff:CachedImage Source="chameleon4.png" HeightRequest="96" WidthRequest="96" Margin="0,0,20,0" />
+                        <Label LineHeight="1.5" TextColor="#8c91ab" FontSize="13" VerticalOptions="Center" VerticalTextAlignment="Center" FontFamily="{StaticResource font_normal}" Text="Certain species of chameleons have bones that glow when under ultraviolet light, also known as biogenic fluorescence." />
+                    </StackLayout>
+                    <controls:Separator Color="#e8e8e8" Thickness="1" Margin="0,20,0,20" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="36" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <ff:CachedImage Grid.Column="1" Grid.Row="0" Source="david.png" Margin="0,0,0,20" />
+                        <ContentView WidthRequest="70" HeightRequest="70" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Padding="10" BackgroundColor="#6040c8" HorizontalOptions="Start" VerticalOptions="EndAndExpand" Margin="0,0,0,36">
+                            <Label FontSize="14" FontFamily="{StaticResource font_normal}" TextColor="White" VerticalOptions="Center" HorizontalTextAlignment="Center" Text="VOTE FOR DAVID" />
+                        </ContentView>
+                        <!--<Label BackgroundColor="Red" LineBreakMode="NoWrap" Grid.Column="0" FontSize="12" FontFamily="{StaticResource font_bold}" TextColor="Black" Text="9842 FOLLOWERS" />-->
+                        <StackLayout Grid.Row="1" Grid.Column="1">
+                            <Label FontSize="12" FontFamily="{StaticResource font_bold}" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="#0eb0b1" Text="Biggest fan" Margin="0,0,0,8" />
+                            <Label FontSize="28" FontFamily="{StaticResource font_black}" VerticalOptions="Center" VerticalTextAlignment="Center" TextColor="Black" Text="David A." Margin="0,0,0,16" />
+                            <Label LineHeight="1.5" TextColor="#8c91ab" FontSize="13" VerticalOptions="Center" VerticalTextAlignment="Center" FontFamily="{StaticResource font_normal}" Text="David is best known for writing and presenting, in conjunction with the BBC Natural History Unit, the nine natural history documentary series forming the Life collection that together constitute a comprehensive survey of animal and plant life on Earth. He is a former senior manager at the BBC, having served as controller of BBC Two and director of programming for BBC Television in the 1960s and 1970s." />
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Chameleon.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- The custom fonts -->
+            <OnPlatform x:Key="font_black" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/SofiaProBlack.otf#SofiaPro-Black" />
+                <On Platform="iOS" Value="SofiaPro-Black" />
+            </OnPlatform>
+            <OnPlatform x:Key="font_bold" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/SofiaProBold.otf#SofiaPro-Bold" />
+                <On Platform="iOS" Value="SofiaPro-Bold" />
+            </OnPlatform>
+            <OnPlatform x:Key="font_normal" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/SofiaProRegular.otf#SofiaProRegular" />
+                <On Platform="iOS" Value="SofiaProRegular" />
+            </OnPlatform>
+            <Style TargetType="{x:Type StackLayout}">
+                <Setter Property="Spacing" Value="0" />
+            </Style>
+            <Style TargetType="{x:Type Grid}">
+                <Setter Property="RowSpacing" Value="0" />
+                <Setter Property="ColumnSpacing" Value="0" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
