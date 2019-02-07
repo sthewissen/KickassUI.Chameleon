@@ -1,5 +1,5 @@
 # KickassUI.Chameleon
-
+A Xamarin.Forms version of the Chameleon app to prove you can create goodlooking UI with Xamarin.Forms as talked about in my blogpost on: https://www.thewissen.io/creating-an-encyclopedia-page-in-xamarin-forms/
 
 ## Tools used
 - FFImageLoading – Caching and transforming images – https://github.com/luberda-molinet/FFImageLoading
